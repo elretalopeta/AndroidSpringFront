@@ -62,6 +62,7 @@ public class PlayerAddActivity extends AppCompatActivity implements PlayerAddFra
 
 
     public void showDatePickerDialog(View v) {
+        DatePickerFragment.pagina = 1;
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(fragmentManager, "datePicker");
     }

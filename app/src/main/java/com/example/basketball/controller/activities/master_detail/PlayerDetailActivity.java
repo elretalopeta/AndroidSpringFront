@@ -33,7 +33,8 @@ public class PlayerDetailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Context context = v.getContext();
                 Intent intent = new Intent(context, PlayerUpdateActivity.class);
-                intent.putExtra(PlayerUpdateFragment.ARG_ITEM_ID, getIntent().getStringExtra(PlayerDetailFragment.ARG_ITEM_ID));
+                //TODO revisar esto
+                //intent.putExtra(PlayerUpdateFragment.ARG_ITEM_UPDATE_ID, "50");
                 context.startActivity(intent);
             }
         });

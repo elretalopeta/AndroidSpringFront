@@ -60,10 +60,17 @@ public class PlayerListActivity extends AppCompatActivity implements PlayerCallb
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent crearPlayer = new Intent(PlayerListActivity.this, PlayerAddActivity.class);
                 startActivity(crearPlayer);
+            }
+        });
 
+        FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent serachPlayer = new Intent(PlayerListActivity.this, PlayerSearchActivity.class);
+                startActivity(serachPlayer);
             }
         });
 

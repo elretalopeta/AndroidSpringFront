@@ -25,7 +25,7 @@ public class PlayerDetailFragment extends Fragment {
      * represents.
      */
     public static final String ARG_ITEM_ID = "item_id";
-
+    public static String id = "";
     /**
      * The player content this fragment is presenting.
      */
@@ -43,12 +43,11 @@ public class PlayerDetailFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
-            String id = getArguments().getString(ARG_ITEM_ID);
+            id = getArguments().getString(ARG_ITEM_ID);
             mItem = PlayerManager.getInstance(this.getContext()).getPlayer(id);
             assert mItem != null;
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
-
             if (appBarLayout != null) {
                 appBarLayout.setTitle(mItem.getName());
             }

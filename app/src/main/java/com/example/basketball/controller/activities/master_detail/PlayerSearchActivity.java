@@ -1,46 +1,44 @@
 package com.example.basketball.controller.activities.master_detail;
 
-import android.app.DialogFragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.basketball.R;
+import com.example.basketball.controller.managers.PlayerCallback;
+import com.example.basketball.model.Player;
 
-public class PlayerUpdateActivity extends AppCompatActivity {
+import java.util.List;
+
+public class PlayerSearchActivity extends AppCompatActivity implements PlayerCallback {
 
 
-    public static FragmentManager fragmentManager = null;
-    public static FragmentTransaction transaction = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_player_update);
-        fragmentManager = getFragmentManager();
-        transaction = fragmentManager.beginTransaction();
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_player_search);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_player_update, menu);
+        getMenuInflater().inflate(R.menu.menu_player_search, menu);
         return true;
     }
 
-    public void showDatePickerDialog(View v) {
-        DatePickerFragment.pagina = 2;
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(fragmentManager, "datePicker");
-    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -56,4 +54,16 @@ public class PlayerUpdateActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onSuccess(List<Player> playerList) {
+
+    }
+
+    @Override
+    public void onFailure(Throwable t) {
+
+    }
+
+
 }

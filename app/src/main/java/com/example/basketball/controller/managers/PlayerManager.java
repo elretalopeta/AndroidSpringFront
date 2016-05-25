@@ -47,7 +47,6 @@ public class PlayerManager {
 
     public synchronized void getAllPlayers(final PlayerCallback playerCallback) {
         Call<List<Player>> call = playerService.getAllPlayer(UserLoginManager.getInstance(context).getBearerToken());
-
         call.enqueue(new Callback<List<Player>>() {
             @Override
             public void onResponse(Call<List<Player>> call, Response<List<Player>> response) {
@@ -72,7 +71,6 @@ public class PlayerManager {
     }
 
     public synchronized void putPlayers(Player player, final PlayerPostCallback playerPostCallback) {
-
         Call<Player> call = playerService.putPlayer(UserLoginManager.getInstance(context).getBearerToken(), player);
         call.enqueue(new Callback<Player>() {
             @Override
@@ -118,6 +116,30 @@ public class PlayerManager {
         });
     }
 
+
+    public synchronized void getNombrePlayers(String nombre, final PlayerCallback playerCallback) {
+
+        Call<List<Player>> call = playerService.getNombrePlayer(nombre, UserLoginManager.getInstance(context).getBearerToken());
+        call.enqueue(new Callback<List<Player>>() {
+
+            @Override
+            public void onResponse(Call<List<Player>> call, Response<List<Player>> response) {
+                players = response.body();
+                int code = response.code();
+                if (code == 200 || code == 201) {
+                    playerCallback.onSuccess(players);
+                } else {
+                    playerCallback.onFailure(new Throwable("ERROR" + code + ", " + response.raw().message()));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Player>> call, Throwable t) {
+                Log.e("PlayerManager->", "getAllPlayers()->ERROR: " + t);
+                playerCallback.onFailure(t);
+            }
+        });
+    }
 
     public Player getPlayer(String id) {
         for (Player player : players) {

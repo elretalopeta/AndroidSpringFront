@@ -27,7 +27,42 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <include layout="@layout/player_list" />
+        <include layout="@layout/player_list"/>
+
+        <RelativeLayout
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right|top">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:src="@android:drawable/ic_menu_sort_alphabetically"
+                android:layout_alignParentTop="true"
+                android:layout_alignLeft="@+id/fab3"
+                android:layout_alignStart="@+id/fab3"
+                android:layout_marginTop="200dp" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|top"
+                android:layout_below="@+id/fab4"
+                android:layout_centerHorizontal="true" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|top"
+                android:src="@android:drawable/ic_menu_sort_alphabetically"
+                android:layout_below="@+id/fab3"
+                android:layout_alignLeft="@+id/fab3"
+                android:layout_alignStart="@+id/fab3" />
+        </RelativeLayout>
     </FrameLayout>
 
     <android.support.design.widget.FloatingActionButton
@@ -37,6 +72,5 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_menu_edit" />
-
 
 </android.support.design.widget.CoordinatorLayout>

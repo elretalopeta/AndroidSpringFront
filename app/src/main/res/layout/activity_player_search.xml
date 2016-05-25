@@ -1,0 +1,24 @@
+
+<FrameLayout
+    android:id="@+id/frameLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/fragment"
+        android:name="com.example.basketball.controller.activities.master_detail.PlayerSearchActivityFragment"
+        tools:layout="@layout/fragment_player_search" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|top" />
+
+</FrameLayout>
+
+
+
+
+
+

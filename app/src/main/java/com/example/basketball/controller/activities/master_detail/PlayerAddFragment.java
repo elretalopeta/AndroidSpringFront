@@ -1,6 +1,7 @@
 package com.example.basketball.controller.activities.master_detail;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -63,8 +64,9 @@ public class PlayerAddFragment extends Fragment implements View.OnClickListener,
 
     public static void setBirtday(int year, int month, int day){
 
-        fecha.setText(String.valueOf(day)+"/"+String.valueOf(month)+"/"+String.valueOf(year));
+        fecha.setText(String.valueOf(day) + "/" + String.valueOf(month) + "/" + String.valueOf(year));
         birthday = year+"-"+month+"-"+day;
+        if (month < 10){birthday = year+"-0"+month+"-"+day;}
 
       }
 
@@ -86,7 +88,6 @@ public class PlayerAddFragment extends Fragment implements View.OnClickListener,
         canastas = (EditText) view.findViewById(R.id.canastas);
         insertar = (Button) view.findViewById(R.id.insertar);
         fecha = (Button) view.findViewById(R.id.fecha);
-
         insertar.setOnClickListener(this);
         return view;
     }
@@ -125,6 +126,8 @@ public class PlayerAddFragment extends Fragment implements View.OnClickListener,
     @Override
     public void onSuccess(String succes) {
         Toast.makeText(getContext(), succes, Toast.LENGTH_SHORT).show();
+        Intent home = new Intent(getContext(), PlayerListActivity.class);
+        startActivity(home);
 
     }
 

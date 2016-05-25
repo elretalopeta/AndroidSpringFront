@@ -13,6 +13,8 @@ import java.util.Calendar;
  */
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener{
 
+    public static int pagina = 0;
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the current date as the default date in the picker
@@ -27,7 +29,12 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
         // Do something with the date chosen by the user
-        PlayerAddFragment.setBirtday(year, month, day);
+        if(pagina == 1){
+            PlayerAddFragment.setBirtday(year, month, day);
+        }else{
+            PlayerUpdateFragment.setBirtday(year, month, day);
+        }
+
     }
 
 }
